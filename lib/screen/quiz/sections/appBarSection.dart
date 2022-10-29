@@ -8,7 +8,5 @@ var appBarSection = AppBar(
       fontStyle: FontStyle.italic,
       fontWeight: FontWeight.bold,
     ),
-    textAlign: TextAlign.center,
   ),
-  backgroundColor: Colors.black87,
 );
