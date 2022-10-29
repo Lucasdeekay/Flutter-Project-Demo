@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:new_app/screen/location/location_detail.dart';
 
 import 'package:new_app/screen/quiz/quiz.dart';
@@ -11,9 +12,12 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return const MaterialApp(
+    return MaterialApp(
       title: 'My App',
-      home: QuizScreen(),
+      home: const QuizScreen(),
+      theme: FlexThemeData.light(
+        scheme: FlexScheme.bahamaBlue,
+      ),
     );
   }
 }
