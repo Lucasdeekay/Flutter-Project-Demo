@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/screen/quiz/sections/buttonSection.dart';
+import 'package:new_app/components/button.dart';
 import 'package:new_app/screen/quiz/sections/textSection.dart';
 
 class BodySection extends StatefulWidget {
@@ -39,7 +39,7 @@ class _BodySectionState extends State<BodySection> {
       children: [
         TextSection("${_quiz.elementAt(_quizIndex)['question']}"),
         ...(_quiz.elementAt(_quizIndex)['answers'] as List<String>)
-            .map((answer) => ButtonSection(_updateQuestion, answer)),
+            .map((answer) => ButtonWidget(answer, _updateQuestion)),
       ],
     );
   }

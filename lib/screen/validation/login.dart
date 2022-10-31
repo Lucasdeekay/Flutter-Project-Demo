@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/components/appbar.dart';
+import 'package:new_app/components/button.dart';
+import 'package:new_app/screen/validation/components/input_field.dart';
 
 import '../../components/drawer.dart';
 
@@ -16,20 +19,25 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _displayDetails() {
     setState(() {
-      msg = "My name is ${_nameController.text} and my email is ${_emailController.text}";
+      msg =
+          "My name is ${_nameController.text} and my email is ${_emailController.text}";
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text("Tourism & Co"),
-        ),
+        title: const AppBarTextWidget("Login Page"),
       ),
       drawer: const DrawerWidget(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pop(context),
+        child: const Icon(
+          Icons.arrow_back,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniStartDocked,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(60.0),
@@ -37,42 +45,17 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Card(
               child: Column(
                 children: [
-                  Image.asset(
-                      "assets/images/hannah-rodrigo-mf_3yZnC6ug-unsplash.jpg"),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(4.0, 16.0, 4.0, 4.0),
-                    child: TextField(
-                      controller: _nameController,
-                      decoration: const InputDecoration(
-                        label: Text("Full Name"),
-                        hintText: "Enter Your Name",
-                        border: OutlineInputBorder(),
-                        icon: Icon(Icons.person),
-                      ),
-                      keyboardType: TextInputType.text,
-                      keyboardAppearance: Brightness.dark,
-                    ),
+                    padding: const EdgeInsets.only(bottom: 24.0),
+                    child: Image.asset(
+                        "assets/images/hannah-rodrigo-mf_3yZnC6ug-unsplash.jpg"),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: TextField(
-                      controller: _emailController,
-                      decoration: const InputDecoration(
-                        label: Text("Email Address"),
-                        hintText: "Enter Your Email Address",
-                        border: OutlineInputBorder(),
-                        icon: Icon(Icons.mail),
-                      ),
-                      keyboardType: TextInputType.emailAddress,
-                      keyboardAppearance: Brightness.dark,
-                      onTap: () => {},
-                    ),
-                  ),
+                  InputWidget("Full Name", "Enter Your Name",
+                      Icons.person, _nameController, TextInputType.text),
+                  InputWidget("Email Address", "Enter Your Email Address",
+                      Icons.mail, _emailController, TextInputType.emailAddress),
                   Center(
-                    child: ElevatedButton(
-                      onPressed: _displayDetails,
-                      child: const Text("Login"),
-                    ),
+                    child: ButtonWidget("Login", _displayDetails),
                   ),
                   Text(msg),
                 ],

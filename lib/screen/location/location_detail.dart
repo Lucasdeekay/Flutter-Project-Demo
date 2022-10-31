@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:new_app/components/appbar.dart';
+import 'package:new_app/components/button.dart';
 import 'package:new_app/components/drawer.dart';
 import 'section/buttonSection.dart';
 import 'section/imageSection.dart';
@@ -14,9 +16,7 @@ class LocationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text("Tourism & Co"),
-        ),
+        title: const AppBarTextWidget("My Location"),
       ),
       drawer: const DrawerWidget(),
       body: ListView(
@@ -30,14 +30,10 @@ class LocationScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, '/quiz'),
-                  child: const Text("Go To Quiz"),
-                ),
-                ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, '/login'),
-                  child: const Text("Login"),
-                ),
+                ButtonWidget("Go To Quiz",
+                        () => Navigator.pushNamed(context, '/quiz')),
+                ButtonWidget("Go To Login",
+                        () => Navigator.pushNamed(context, '/login')),
               ],
             ),
           )

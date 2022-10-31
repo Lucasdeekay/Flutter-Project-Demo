@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:new_app/screen/quiz/sections/appBarSection.dart';
 import 'package:new_app/screen/quiz/sections/bodySection.dart';
 
+import '../../components/appbar.dart';
 import '../../components/drawer.dart';
 
 class QuizScreen extends StatelessWidget {
@@ -11,17 +10,18 @@ class QuizScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarSection,
+      appBar: AppBar(
+        title: const AppBarTextWidget("Quiz"),
+      ),
       body: const BodySection(),
       drawer: const DrawerWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pop(context),
-        mouseCursor: MouseCursor.uncontrolled,
-        tooltip: 'Go To Home',
         child: const Icon(
           Icons.arrow_back,
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniStartDocked,
     );
   }
 }
