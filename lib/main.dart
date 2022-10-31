@@ -14,10 +14,14 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       title: 'My App',
-      home: const QuizScreen(),
+      initialRoute: '/',
       theme: FlexThemeData.light(
-        scheme: FlexScheme.bahamaBlue,
+        scheme: FlexScheme.aquaBlue,
       ),
+      routes: {
+        '/': (context) => const LocationScreen(),
+        '/quiz': (context) => const QuizScreen(),
+      },
     );
   }
 }

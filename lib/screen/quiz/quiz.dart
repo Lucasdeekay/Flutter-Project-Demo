@@ -11,6 +11,14 @@ class QuizScreen extends StatelessWidget {
     return Scaffold(
       appBar: appBarSection,
       body: const BodySection(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pop(context),
+        mouseCursor: MouseCursor.uncontrolled,
+        tooltip: 'Go To Home',
+        child: const Icon(
+          Icons.arrow_back,
+        ),
+      ),
     );
   }
 }

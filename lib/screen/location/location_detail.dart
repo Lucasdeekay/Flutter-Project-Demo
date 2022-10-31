@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'section/buttonSection.dart';
 import 'section/imageSection.dart';
@@ -23,6 +24,12 @@ class LocationScreen extends StatelessWidget {
           buttonSection,
           textSection,
           imageCardSection,
+          Center(
+            child: ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, '/quiz'),
+              child: const Text("Go To Quiz"),
+            ),
+          )
         ],
       ),
     );
