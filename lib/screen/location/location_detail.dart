@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:new_app/components/drawer.dart';
 import 'section/buttonSection.dart';
 import 'section/imageSection.dart';
 import 'section/textSection.dart';
@@ -17,6 +18,7 @@ class LocationScreen extends StatelessWidget {
           child: Text("Tourism & Co"),
         ),
       ),
+      drawer: const DrawerWidget(),
       body: ListView(
         children: [
           imageSection,
@@ -25,9 +27,18 @@ class LocationScreen extends StatelessWidget {
           textSection,
           imageCardSection,
           Center(
-            child: ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/quiz'),
-              child: const Text("Go To Quiz"),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () => Navigator.pushNamed(context, '/quiz'),
+                  child: const Text("Go To Quiz"),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.pushNamed(context, '/login'),
+                  child: const Text("Login"),
+                ),
+              ],
             ),
           )
         ],

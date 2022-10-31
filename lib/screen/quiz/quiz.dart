@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:new_app/screen/quiz/sections/appBarSection.dart';
 import 'package:new_app/screen/quiz/sections/bodySection.dart';
 
+import '../../components/drawer.dart';
+
 class QuizScreen extends StatelessWidget {
   const QuizScreen({Key? key}) : super(key: key);
 
@@ -11,6 +13,7 @@ class QuizScreen extends StatelessWidget {
     return Scaffold(
       appBar: appBarSection,
       body: const BodySection(),
+      drawer: const DrawerWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pop(context),
         mouseCursor: MouseCursor.uncontrolled,
