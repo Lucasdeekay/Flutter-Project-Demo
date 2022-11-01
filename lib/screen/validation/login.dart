@@ -1,7 +1,5 @@
-import 'dart:convert';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:new_app/components/appbar.dart';
 import 'package:new_app/components/button.dart';
 import 'package:new_app/screen/validation/components/input_field.dart';
@@ -19,29 +17,10 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   var msg = "";
-  var url;
-  var data;
 
-  fetchData()async{
-    var res = await http.get(url);
-    data = jsonDecode(res.body);
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
 
   void _displayDetails() {
     setState(() {
-      fetchData();
       msg =
           "My name is ${_nameController.text} and my email is ${_emailController.text}";
     });
@@ -60,7 +39,8 @@ class _LoginScreenState extends State<LoginScreen> {
           Icons.arrow_back,
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniStartDocked,
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniStartDocked,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(60.0),
@@ -73,15 +53,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Image.asset(
                         "assets/images/hannah-rodrigo-mf_3yZnC6ug-unsplash.jpg"),
                   ),
-                  InputWidget("Full Name", "Enter Your Name",
-                      Icons.person, _nameController, TextInputType.text),
+                  InputWidget("Full Name", "Enter Your Name", Icons.person,
+                      _nameController, TextInputType.text),
                   InputWidget("Email Address", "Enter Your Email Address",
                       Icons.mail, _emailController, TextInputType.emailAddress),
                   Center(
                     child: ButtonWidget("Login", _displayDetails),
                   ),
                   Text(msg),
-                  data != null ? Container() : const CircularProgressIndicator(),
                 ],
               ),
             ),

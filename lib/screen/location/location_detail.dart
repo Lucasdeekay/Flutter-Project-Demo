@@ -34,6 +34,8 @@ class LocationScreen extends StatelessWidget {
                         () => Navigator.pushNamed(context, '/quiz')),
                 ButtonWidget("Go To Login",
                         () => Navigator.pushNamed(context, '/login')),
+                ButtonWidget("Fetch Data",
+                        () => Navigator.pushNamed(context, '/list')),
               ],
             ),
           )

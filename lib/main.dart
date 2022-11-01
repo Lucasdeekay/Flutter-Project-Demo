@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:new_app/screen/list.dart';
 import 'package:new_app/screen/location/location_detail.dart';
 
 import 'package:new_app/screen/quiz/quiz.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget{
         '/': (context) => const LocationScreen(),
         '/quiz': (context) => const QuizScreen(),
         '/login': (context) => const LoginScreen(),
+        '/list': (context) => const ListScreen(),
       },
     );
   }
