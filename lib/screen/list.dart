@@ -8,6 +8,7 @@ import '../components/appbar.dart';
 
 
 class ListScreen extends StatefulWidget {
+  static const String routeName = '/list';
   const ListScreen({Key? key}) : super(key: key);
 
   @override

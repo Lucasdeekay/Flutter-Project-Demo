@@ -16,15 +16,15 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       title: 'My App',
-      initialRoute: '/',
+      initialRoute: LocationScreen.routeName,
       theme: FlexThemeData.light(
         scheme: FlexScheme.aquaBlue,
       ),
       routes: {
-        '/': (context) => const LocationScreen(),
-        '/quiz': (context) => const QuizScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/list': (context) => const ListScreen(),
+        LocationScreen.routeName: (context) => const LocationScreen(),
+        QuizScreen.routeName: (context) => const QuizScreen(),
+        LoginScreen.routeName: (context) => const LoginScreen(),
+        ListScreen.routeName: (context) => const ListScreen(),
       },
     );
   }

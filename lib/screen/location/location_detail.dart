@@ -10,6 +10,7 @@ import 'section/titleSection.dart';
 import 'section/imageCardSection.dart';
 
 class LocationScreen extends StatelessWidget {
+  static const String routeName = '/';
   const LocationScreen({Key? key}) : super(key: key);
 
   @override

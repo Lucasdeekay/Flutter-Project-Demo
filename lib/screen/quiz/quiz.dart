@@ -5,6 +5,7 @@ import '../../components/appbar.dart';
 import '../../components/drawer.dart';
 
 class QuizScreen extends StatelessWidget {
+  static const String routeName = '/quiz';
   const QuizScreen({Key? key}) : super(key: key);
 
   @override
