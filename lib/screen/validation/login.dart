@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_app/components/appbar.dart';
-import 'package:new_app/components/button.dart';
-import 'package:new_app/screen/validation/components/input_field.dart';
+import 'package:new_app/screen/validation/components/form.dart';
 
 import '../../components/drawer.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const String routeName = '/login';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -14,18 +13,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  var msg = "";
-
-
-  void _displayDetails() {
-    setState(() {
-      msg =
-          "My name is ${_nameController.text} and my email is ${_emailController.text}";
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,31 +28,17 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniStartDocked,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(60.0),
-          child: SingleChildScrollView(
-            child: Card(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 24.0),
-                    child: Image.asset(
-                        "assets/images/hannah-rodrigo-mf_3yZnC6ug-unsplash.jpg"),
-                  ),
-                  InputWidget("Full Name", "Enter Your Name", Icons.person,
-                      _nameController, TextInputType.text),
-                  InputWidget("Email Address", "Enter Your Email Address",
-                      Icons.mail, _emailController, TextInputType.emailAddress),
-                  Center(
-                    child: ButtonWidget("Login", _displayDetails),
-                  ),
-                  Text(msg),
-                ],
-              ),
-            ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/images/hannah-rodrigo-mf_3yZnC6ug-unsplash.jpg',
+            fit: BoxFit.cover,
+            color: Colors.black.withOpacity(0.7),
+            colorBlendMode: BlendMode.darken,
           ),
-        ),
+          const LoginFormWidget(),
+        ],
       ),
     );
   }

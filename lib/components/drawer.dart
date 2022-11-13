@@ -16,7 +16,7 @@ class DrawerWidget extends StatelessWidget {
               backgroundImage: AssetImage(
                   "assets/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg"),
             ),
-            decoration: BoxDecoration(color: Colors.indigoAccent),
+            decoration: BoxDecoration(color: Colors.lightBlue),
           ),
           ListTile(
             leading: const Icon(Icons.person),

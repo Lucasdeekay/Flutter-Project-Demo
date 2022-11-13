@@ -15,12 +15,11 @@ class InputWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(4.0),
-      child: TextField(
+      child: TextFormField(
         controller: _inputController,
         decoration: InputDecoration(
           label: Text(_label),
           hintText: _hintText,
-          border: const OutlineInputBorder(),
           icon: Icon(_icon),
         ),
         keyboardType: _keyboardType,
