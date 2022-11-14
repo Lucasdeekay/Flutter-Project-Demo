@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:new_app/components/appbar.dart';
 import 'package:new_app/components/button.dart';
 import 'package:new_app/components/drawer.dart';
+import 'package:new_app/screen/list.dart';
+import 'package:new_app/screen/validation/login.dart';
+import '../quiz/quiz.dart';
 import 'section/buttonSection.dart';
 import 'section/imageSection.dart';
 import 'section/textSection.dart';
@@ -31,12 +34,18 @@ class LocationScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ButtonWidget("Go To Quiz",
-                        () => Navigator.pushNamed(context, '/quiz')),
-                ButtonWidget("Go To Login",
-                        () => Navigator.pushNamed(context, '/login')),
-                ButtonWidget("Fetch Data",
-                        () => Navigator.pushNamed(context, '/list')),
+                ButtonWidget(
+                  "Go To Quiz",
+                  () => Navigator.pushNamed(context, QuizScreen.routeName),
+                ),
+                ButtonWidget(
+                  "Go To Login",
+                  () => Navigator.pushNamed(context, LoginScreen.routeName),
+                ),
+                ButtonWidget(
+                  "Fetch Data",
+                  () => Navigator.pushNamed(context, ListScreen.routeName),
+                ),
               ],
             ),
           )
