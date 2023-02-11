@@ -21,6 +21,14 @@ class LocationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const AppBarTextWidget("My Location"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+            },
+            icon: const Icon(Icons.logout_rounded),
+          )
+        ],
       ),
       drawer: const DrawerWidget(),
       body: ListView(
@@ -37,10 +45,6 @@ class LocationScreen extends StatelessWidget {
                 ButtonWidget(
                   "Go To Quiz",
                   () => Navigator.pushNamed(context, QuizScreen.routeName),
-                ),
-                ButtonWidget(
-                  "Go To Login",
-                  () => Navigator.pushNamed(context, LoginScreen.routeName),
                 ),
                 ButtonWidget(
                   "Fetch Data",

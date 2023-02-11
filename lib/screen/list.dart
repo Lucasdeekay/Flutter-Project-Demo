@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:new_app/components/drawer.dart';
+import 'package:new_app/screen/validation/login.dart';
 
 import '../components/appbar.dart';
 
@@ -44,14 +45,16 @@ class _ListScreenState extends State<ListScreen> {
     return Scaffold(
         appBar: AppBar(
           title: const AppBarTextWidget("List Page"),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+              },
+              icon: const Icon(Icons.logout_rounded),
+            )
+          ],
         ),
         drawer: const DrawerWidget(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.pop(context),
-          child: const Icon(
-            Icons.arrow_back,
-          ),
-        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.miniStartDocked,
         body:  data != null
             ? ListView.builder(

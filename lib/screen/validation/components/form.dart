@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/components/button.dart';
+import 'package:new_app/screen/location/location_detail.dart';
 import 'package:new_app/screen/validation/components/input_field.dart';
 
 class LoginFormWidget extends StatefulWidget {
@@ -16,6 +17,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
   var msg = "";
 
   void _displayDetails() {
+    Navigator.pushReplacementNamed(context, LocationScreen.routeName);
     setState(() {
       msg =
       "My name is ${_nameController.text} and my email is ${_emailController.text}";
